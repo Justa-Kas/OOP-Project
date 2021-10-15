@@ -6,7 +6,7 @@ namespace OOPProject
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+                
         }
     }
 }
