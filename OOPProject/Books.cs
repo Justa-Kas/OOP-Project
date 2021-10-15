@@ -1,22 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace OOPProject
-{
+
     class Books
     {
         //properties
         public string Title { get; set; }
         public string Author { get; set; }
-        public bool IsCheckedOut { get; set; }
 
-        //constructor
-        public Books(string title, string author, bool ischeckedout)
+    public Books(string title, string author)
+    {
+        this.Title = title;
+        this.Author = author;
+    }
+        public override string ToString()
         {
-            this.Title = title;
-            this.Author = author;
-            this.IsCheckedOut = ischeckedout;
+            return $"Title: {Title} Author: {Author}";
         }
     }
-}
+
