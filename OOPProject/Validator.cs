@@ -27,6 +27,29 @@ namespace Validator
             }
             return result;
         }
+        public static int GetNumber(string whatIsItFor, int num1, int num2)
+        {
+            int result = 0;
+
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine(whatIsItFor);
+                    result = int.Parse(Console.ReadLine());
+                    if (result == num1 || result == num2)
+                    {
+                        break;
+                    }
+                    throw new FormatException();
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Not a valid input");
+                }
+            }
+            return result;
+        }
         public static double GetNumber(double min, double max)
         {
             double result = 0;
