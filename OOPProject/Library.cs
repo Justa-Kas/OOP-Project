@@ -7,6 +7,8 @@ namespace OOPProject
 {
     class Library
     {
+
+        string s = "a";
         List<Books> LibBooks = new List<Books>();
 
         public Library(List<Books> LibBooks)
