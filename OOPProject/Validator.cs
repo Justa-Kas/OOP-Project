@@ -8,11 +8,12 @@ namespace OOPProject
 {
     class Validator
     {
+        //gets valid input from user for searching by title or author as well as giving them a choice to return to main menu.
         public static int ValidateSelectBy() {
             int selection;
             do
             {
-                Console.WriteLine("Enter 1 to search by title or 2 to search by author");
+                Console.WriteLine("Enter 1 to search by title, 2 to search by author or 0 to return to main menu");
                 try
                 {
                     selection = int.Parse(Console.ReadLine());
@@ -20,7 +21,9 @@ namespace OOPProject
                         return selection;
                     else if (selection == 2)
                         return selection;
-                    Console.WriteLine("Must enter 1 or 2 ");
+                    else if (selection == 0)
+                        return selection;
+                    Console.WriteLine("Must enter 1 , 2 or 0 ");
                 }
                 catch (FormatException)
                 {
@@ -29,19 +32,18 @@ namespace OOPProject
             } while (true);
         }
 
+        //gets a valid index position from the user as as well as giving them a choice to return to main menu.
         public static int ValidateIndex(int ListLength)
         {
             do
             {
                 try
                 {
-                    Console.WriteLine("Enter number of book");
+                    Console.WriteLine("Enter number of book or enter 0 to return to main menu");
                     int BookIndex = int.Parse(Console.ReadLine());
-                    if (BookIndex <= ListLength) {
-                        if(BookIndex >=1 ){
+                    if (BookIndex <= ListLength) 
+                        if(BookIndex >=0 )
                             return BookIndex-1;
-                        }
-                    }
                     Console.WriteLine($"must enter a number between 1 and {ListLength}");
                 }
                 catch (FormatException)
@@ -51,18 +53,5 @@ namespace OOPProject
 
             } while (true);
         }
-
-        public static string validateAgain() {
-            do {
-                string selection = Console.ReadLine();
-                if (selection == "y")
-                    return selection;
-                else if (selection == "n")
-                    return selection;
-                Console.WriteLine("Must enter y or n ");
-            } while (true);
-        }
     }
-
-
 }
