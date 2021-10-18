@@ -4,145 +4,65 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Validator
+namespace OOPProject
 {
     class Validator
     {
-        public static int GetNumber(string whatIsItFor)
-        {
-            int result = 0;
-
-            while (true)
+        public static int ValidateSelectBy() {
+            int selection;
+            do
             {
+                Console.WriteLine("Enter 1 to search by title or 2 to search by author");
                 try
                 {
-                    Console.WriteLine(whatIsItFor);
-                   result = int.Parse(Console.ReadLine());
-                    break;
+                    selection = int.Parse(Console.ReadLine());
+                    if (selection == 1)
+                        return selection;
+                    else if (selection == 2)
+                        return selection;
+                    Console.WriteLine("Must enter 1 or 2 ");
                 }
                 catch (FormatException)
                 {
-                    Console.WriteLine("Not a valid input");
+                    Console.WriteLine("Must Enter a number");
                 }
-            }
-            return result;
+            } while (true);
         }
-        public static int GetNumber(string whatIsItFor, int num1, int num2)
-        {
-            int result = 0;
 
-            while (true)
+        public static int ValidateIndex(int ListLength)
+        {
+            do
             {
                 try
                 {
-                    Console.WriteLine(whatIsItFor);
-                    result = int.Parse(Console.ReadLine());
-                    if (result == num1 || result == num2)
-                    {
-                        break;
+                    Console.WriteLine("Enter number of book");
+                    int BookIndex = int.Parse(Console.ReadLine());
+                    if (BookIndex <= ListLength) {
+                        if(BookIndex >=1 ){
+                            return BookIndex-1;
+                        }
                     }
-                    throw new FormatException();
+                    Console.WriteLine($"must enter a number between 1 and {ListLength}");
                 }
                 catch (FormatException)
                 {
-                    Console.WriteLine("Not a valid input");
+                    Console.WriteLine($"Must enter number between 1 and {ListLength}");
                 }
-            }
-            return result;
-        }
-        public static double GetNumber(double min, double max)
-        {
-            double result = 0;
 
-            while (true)
-            {
-                try
-                {
-                    Console.WriteLine($"Please enter a number between {min} and {max}");
-                    result = double.Parse(Console.ReadLine());
-                    if (result >= min && result <= max)
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        throw new FormatException();
-                    }
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Not a valid input");
-                }
-            }
-            return result;
+            } while (true);
         }
 
-        public static bool ValidateWord(string userInput,string option1, string option2)
-        {
-            while (true) {
-                Console.WriteLine($"Enter either {option1} or {option2}.");
-                if (userInput.ToLower() == option1)
-                {
-                    return true;
-                }
-                else if (userInput.ToLower() == option2)
-                {
-                    return false;
-                }
-                else
-                {
-                    Console.Write("Not a valid input, Please try again. ");
-                }
-            }
-        }
-
-        public static bool GetContinue()
-        {
-            bool result = true;
-            while (true)
-            {
-                Console.WriteLine("Would you like to keep running the program? y/yes/n/no");
-                string choice = Console.ReadLine().ToLower().Trim();
-                if(choice == "y")
-                {
-                    result = true;
-                    break;
-                }else if(choice == "n")
-                {
-                    result = false;
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("Not a valid input. Try again");
-                }
-            }
-            return result;
-        }
-
-        public static bool GetContinue(string didntExcept)
-        {
-            bool result = true;
-            while (true)
-            {
-                Console.WriteLine("Would you like to keep running the program? y/n");
-                string choice = Console.ReadLine().ToLower().Trim();
-                if (choice == "y"|| choice =="yes")
-                {
-                    result = true;
-                    break;
-                }
-                else if (choice == "n"||choice =="no")
-                {
-                    result = false;
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine(didntExcept);
-                }
-            }
-            return result;
+        public static string validateAgain() {
+            do {
+                string selection = Console.ReadLine();
+                if (selection == "y")
+                    return selection;
+                else if (selection == "n")
+                    return selection;
+                Console.WriteLine("Must enter y or n ");
+            } while (true);
         }
     }
+
+
 }
