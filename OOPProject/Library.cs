@@ -18,7 +18,7 @@ namespace OOPProject
 
         public void displayBooks(List<Books> selectedBooks) {
             for (int i = 0; i < selectedBooks.Count; i++)
-                Console.WriteLine($"{i+1}. {selectedBooks[i].ToString()}");
+                Console.WriteLine(String.Format("{0,-3} {1,-3 }", i+1+".", selectedBooks[i].ToString()));
         }
 
         public List<Books> ListByAuthor(string input) {
@@ -63,7 +63,6 @@ namespace OOPProject
             
             int selection = Validator.ValidateSelectBy();
             if (selection == 1) {
-
                 Console.WriteLine("Enter title or words from title");
                 string searchTitle = Console.ReadLine().ToLower();
                 List<Books> SelectedList = ListByTitle(searchTitle);
@@ -74,32 +73,38 @@ namespace OOPProject
                 }
                 displayBooks(SelectedList);
                 int BookIndex = Validator.ValidateIndex(SelectedList.Count);
+                if (BookIndex==-1) {
+                    return;
+                }
                 foreach (Books book in LibBooks)
                 {
-                    if (SelectedList[BookIndex].Equals(book)) {
-                        if (!book.IsCheckedOut) {
+                    if (SelectedList[BookIndex].Equals(book)) 
+                    {
+                        if (!book.IsCheckedOut) 
+                        {
                             book.IsCheckedOut = true;
                             book.DueDate = DateTime.Now.AddDays(14).ToString();
                             Console.WriteLine($"you have checked out {book.ToString()} your due date is {book.DueDate}");
-                            break;
+                            return;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Book Already Checked out");
+                            return;
                         }
                     }
                 }
-                Console.WriteLine("Book Already Checked out");
-                return;
-
-
             }
-            if (selection==2) {
+            if (selection==2) 
+            {
                 Console.WriteLine("Enter first or last name of author");
                 string searchTitle = Console.ReadLine().ToLower();
                 List<Books> SelectedList = ListByAuthor(searchTitle);
-                if (SelectedList.Count == 0) {
+                if (SelectedList.Count == 0) 
+                {
                     Console.WriteLine("No books matching search criteria.");
                     return;
                 }
-                    
-
                 displayBooks(SelectedList);
                 int BookIndex = Validator.ValidateIndex(SelectedList.Count);
                 foreach (Books book in LibBooks)
@@ -135,6 +140,8 @@ namespace OOPProject
                 }
                 displayBooks(SelectedList);
                 int BookIndex = Validator.ValidateIndex(SelectedList.Count);
+                if (BookIndex==-1)
+                    return;        
                 foreach (Books book in LibBooks)
                 {
                     if (SelectedList[BookIndex].Equals(book))
@@ -146,8 +153,11 @@ namespace OOPProject
                             Console.WriteLine($"you have returned {book.Title} ");
                             break;
                         }
-                        Console.WriteLine("Book not checked out");
-                        return;
+                        else
+                        {
+                            Console.WriteLine("Book Already Checked out");
+                            break;
+                        }
                     }
                 }
             }
@@ -161,22 +171,22 @@ namespace OOPProject
                     Console.WriteLine("No books matching search criteria.");
                     return;
                 }
-
-
                 displayBooks(SelectedList);
                 int BookIndex = Validator.ValidateIndex(SelectedList.Count);
+                if (BookIndex == -1)
+                    return;
                 foreach (Books book in LibBooks)
                 {
                     if (SelectedList[BookIndex].Equals(book))
                     {
-                        if (!book.IsCheckedOut)
+                        if (book.IsCheckedOut)
                         {
-                            book.IsCheckedOut = true;
+                            book.IsCheckedOut = false;
                             book.DueDate = DateTime.Now.AddDays(14).ToString();
-                            Console.WriteLine($"you have checked out {book.Title} your due date is {book.DueDate}");
+                            Console.WriteLine($"you have returned {book.Title} your due date is {book.DueDate}");
                             break;
                         }
-                        Console.WriteLine("Book already checked out");
+                        Console.WriteLine("Book not checked out");
                         return;
                     }
                 }

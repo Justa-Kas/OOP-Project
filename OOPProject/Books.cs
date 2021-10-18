@@ -23,10 +23,11 @@ using System.Threading.Tasks;
 
 
         public override string ToString()
-        {
-            if(IsCheckedOut)
-                return $"{Title} by {Author} unavailable";
-            return $"{Title} by {Author} available";
-        }
+            {
+        if (IsCheckedOut)
+            return string.Format("{0,-40} by {1,-20} {2,-10}", this.Title, this.Author, "unavailable");
+        return string.Format("{0,-40} by {1,-20} {2,-10}", this.Title, this.Author, "available");
+
     }
+}
 

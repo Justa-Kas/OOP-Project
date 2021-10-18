@@ -12,13 +12,15 @@ namespace OOPProject
             int selection;
             do
             {
-                Console.WriteLine("Enter 1 to search by title or 2 to search by author");
+                Console.WriteLine("Enter 1 to search by title, 2 to search by author or 0 to return to main menu");
                 try
                 {
                     selection = int.Parse(Console.ReadLine());
                     if (selection == 1)
                         return selection;
                     else if (selection == 2)
+                        return selection;
+                    else if (selection == 0)
                         return selection;
                     Console.WriteLine("Must enter 1 or 2 ");
                 }
@@ -35,10 +37,10 @@ namespace OOPProject
             {
                 try
                 {
-                    Console.WriteLine("Enter number of book");
+                    Console.WriteLine("Enter number of book or enter 0 to return to main menu");
                     int BookIndex = int.Parse(Console.ReadLine());
                     if (BookIndex <= ListLength) {
-                        if(BookIndex >=1 ){
+                        if(BookIndex >=0 ){
                             return BookIndex-1;
                         }
                     }
