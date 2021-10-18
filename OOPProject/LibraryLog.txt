@@ -1,7 +1,7 @@
 Dracula ,Bram Stoker ,False,
-Moby Dick ,Herman Melville ,True,11/1/2021 3:01:26 PM
+Moby Dick ,Herman Melville ,False,
 Frankenstein ,Mary Shelley ,False,
-1984 ,George Orwell ,True,11/1/2021 3:01:40 PM
+1984 ,George Orwell ,False,
 Lord of the Rings ,J.R.R. Tolkien ,False,
 The Adventures of Huckleberry Finn ,Mark Twain ,False,
 The Iliad ,Homer ,False,
