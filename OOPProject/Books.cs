@@ -10,15 +10,23 @@ using System.Threading.Tasks;
         //properties
         public string Title { get; set; }
         public string Author { get; set; }
+        public bool IsCheckedOut { get; set; }
+        public string DueDate { get; set; }
 
-    public Books(string title, string author)
-    {
+        public Books(string title, string author)
+        {
         this.Title = title;
         this.Author = author;
-    }
+        this.IsCheckedOut = false;
+        this.DueDate = "";
+        }
+
+
         public override string ToString()
         {
-            return $"Title: {Title} Author: {Author}";
+            if(IsCheckedOut)
+                return $"{Title} by {Author} unavailable";
+            return $"{Title} by {Author} available";
         }
     }
 
