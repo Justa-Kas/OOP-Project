@@ -15,19 +15,36 @@ using System.Threading.Tasks;
 
         public Books(string title, string author)
         {
-        this.Title = title;
-        this.Author = author;
-        this.IsCheckedOut = false;
-        this.DueDate = "";
+            this.Title = title;
+            this.Author = author;
+            this.IsCheckedOut = false;
+            this.DueDate = "";
+        }
+
+        public Books(string title, string author, bool IsCheckedOut, string DueDate)
+        {
+            this.Title = title;
+            this.Author = author;
+            this.IsCheckedOut = IsCheckedOut;
+            this.DueDate = DueDate;
+        }
+
+        public Books()
+        {
+            this.Title ="";
+            this.Author ="";
+            this.IsCheckedOut = false;
+            this.DueDate = "";
         }
 
 
-        public override string ToString()
-            {
-        if (IsCheckedOut)
-            return string.Format("{0,-40} by {1,-20} {2,-10}", this.Title, this.Author, "unavailable");
-        return string.Format("{0,-40} by {1,-20} {2,-10}", this.Title, this.Author, "available");
 
+
+    public override string ToString()
+        {
+            if (IsCheckedOut)
+                return string.Format("{0,-40} by {1,-20} {2,-10} {3}", this.Title, this.Author, "unavailable until",DueDate);
+            return string.Format("{0,-40} by {1,-20} {2,-10}", this.Title, this.Author, "available");
+        }
     }
-}
 
