@@ -24,9 +24,9 @@ using System.Threading.Tasks;
 
         public override string ToString()
         {
-            if(IsCheckedOut)
-                return $"{Title} by {Author} unavailable";
-            return $"{Title} by {Author} available";
+            if (IsCheckedOut)
+                return string.Format("{0,-40}\n Author: {1,-20} {2,-10} {3}\n", this.Title, this.Author, "unavailable until",DueDate);
+            return string.Format("{0,-40}\n Author: {1,-20} {2,-10}\n", this.Title, this.Author, "available");
         }
     }
 
