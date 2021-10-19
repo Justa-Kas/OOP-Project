@@ -39,7 +39,7 @@ namespace OOPProject
                 //writes each book to the txt file.
                 StreamWriter SW = new StreamWriter(filePath);
                 foreach (Books book in DefaultBooks)
-                    SW.WriteLine($"{book.Title} ,{book.Author} ,{book.IsCheckedOut},{book.DueDate}");
+                    SW.WriteLine($"{book.Title},{book.Author},{book.IsCheckedOut},{book.DueDate}");
                 SW.Close();
             }
 
@@ -74,6 +74,8 @@ namespace OOPProject
 
             //creates the library object
             Library MyLib = new Library(LibBooks);
+            
+            //calls method for using library.
             MyLib.LibraryMenu();
 
             //writes every book to the txt file when the user is finished checking out and returning books.
@@ -81,7 +83,6 @@ namespace OOPProject
             foreach (Books book in LibBooks)
                 LibSW.WriteLine($"{book.Title},{book.Author},{book.IsCheckedOut},{book.DueDate}");
             LibSW.Close();
-
         }
     }
 }

@@ -188,7 +188,7 @@ namespace OOPProject
                         {
                             book.IsCheckedOut = false;
                             book.DueDate = DateTime.Now.AddDays(14).ToString();
-                            Console.WriteLine($"you have returned {book.Title} ");
+                            Console.WriteLine($"you have returned {book.Title}.");
                             break;
                         }
                         else
@@ -229,7 +229,7 @@ namespace OOPProject
                         {
                             book.IsCheckedOut = false;
                             book.DueDate = DateTime.Now.AddDays(14).ToString();
-                            Console.WriteLine($"you have returned {book.Title} your due date is {book.DueDate}");
+                            Console.WriteLine($"you have returned {book.Title}.");
                             break;
                         }
                         Console.WriteLine("Book not checked out");
