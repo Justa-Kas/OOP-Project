@@ -12,7 +12,7 @@ namespace OOPProject
             List<Books> LibBooks = new List<Books>();
             //creates a variable for the file path. 
             string filePath = @"..\..\..\LibraryLog.txt";
-            
+
             //Creates the file path if it does not exist
             if (!File.Exists(filePath))
             {
@@ -44,7 +44,8 @@ namespace OOPProject
             }
 
             //creates book list from reading the txt file.
-            else {
+            else
+            {
                 StreamReader reader = new StreamReader(filePath);
                 while (true)
                 {
@@ -74,11 +75,11 @@ namespace OOPProject
             //creates the library object
             Library MyLib = new Library(LibBooks);
             MyLib.LibraryMenu();
-            
+
             //writes every book to the txt file when the user is finished checking out and returning books.
             StreamWriter LibSW = new StreamWriter(filePath);
             foreach (Books book in LibBooks)
-                LibSW.WriteLine($"{book.Title} ,{book.Author} ,{book.IsCheckedOut},{book.DueDate}");
+                LibSW.WriteLine($"{book.Title},{book.Author},{book.IsCheckedOut},{book.DueDate}");
             LibSW.Close();
 
         }
